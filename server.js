@@ -2,9 +2,9 @@
 // Dependencies
 ///////////////////////////////////
 // dotenv to get our env variables
-require("dotenv").config()
+require("dotenv").config({ debug: true })
 // PULL PORT variable from .env
-const {PORT = 3000, MONGODB_URL} = process.env
+const {PORT = 3000, MONGODB_URI} = process.env
 // import express
 const express = require("express")
 // create app object
@@ -19,7 +19,7 @@ const morgan = require("morgan") // logging
 // Database Connection
 //////////////////////////////////
 // Establish Connection
-mongoose.connect(MONGODB_URL, {
+mongoose.connect(MONGODB_URI, {
     useUnifiedTopology: true,
     useNewUrlParser: true
 })
